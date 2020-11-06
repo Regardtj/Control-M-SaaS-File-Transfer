@@ -1,0 +1,1053 @@
+{
+  "zzz-mft-templates": {
+    "Type": "Folder",
+    "BusinessFields": [
+      {
+        "Usercode": "zzz"
+      }
+    ],
+    "ControlmServer": "IN01",
+    "Description": "This is a workflow containing MFT job templates",
+    "OrderMethod": "Manual",
+    "SiteStandard": "SE_DemoSystem",
+    "SubApplication": "mft-workflow-demo",
+    "CreatedBy": "regardt_jacobs@bmc.com",
+    "Application": "standard-demo",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "EVERYDAY"
+        ],
+        "EVERYDAY": {
+          "Type": "Calendar:RuleBased",
+          "When": {
+            "DaysRelation": "OR",
+            "WeekDays": [
+              "NONE"
+            ],
+            "MonthDays": [
+              "ALL"
+            ]
+          }
+        }
+      }
+    },
+    "zzz-mft-local-local": {
+      "Type": "Job:FileTransfer",
+      "ConnectionProfileSrc": "rja_local",
+      "ConnectionProfileDest": "rja_local",
+      "Host": "rja-saas-agent",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This is a file transfer job with local connection profile",
+      "RunAs": "rja_local+rja_local",
+      "Variables": [
+        {
+          "FTP-RHOST": "<Agent Host>"
+        },
+        {
+          "FTP-LOSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE1": "File System"
+        },
+        {
+          "FTP-LHOST": "<Agent Host>"
+        },
+        {
+          "FTP-PORT1": "21"
+        },
+        {
+          "FTP-LUSER": "ctmag"
+        },
+        {
+          "FTP-ROSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE2": "File System"
+        },
+        {
+          "FTP-PORT2": "21"
+        },
+        {
+          "FTP-RUSER": "ctmag"
+        },
+        {
+          "FTP-CM_VER": "9.0.00"
+        },
+        {
+          "FTP-TIMELIMIT_UNIT1": "1"
+        },
+        {
+          "FTP-MODIFIED_SINCE_LASTRUN1": "0"
+        },
+        {
+          "FTP-LAST_SUCCESFUL_RUN_INIT_AGE1": "0"
+        },
+        {
+          "FTP-FIRST_RUN_DELTA1": "1"
+        }
+      ],
+      "FileTransfers": [
+        {
+          "TransferType": "Binary",
+          "TransferOption": "SrcToDest",
+          "Src": "/home/ctmag/transfer/200MB.zip",
+          "Dest": "/home/ctmag/soft/",
+          "ABSTIME": "0",
+          "TIMELIMIT": "0",
+          "UNIQUE": "0",
+          "SRCOPT": "0",
+          "IF_EXIST": "0",
+          "DSTOPT": "0",
+          "RECURSIVE": "0",
+          "EXCLUDE_WILDCARD": "0",
+          "TRIM": "1",
+          "NULLFLDS": "0",
+          "VERNUM": "0",
+          "CASEIFS": "0"
+        }
+      ],
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "zzz-middle-flow-TO-zzz-mft-local-local"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-local-TO-zzz-mft-file-watcher"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "zzz-middle-flow-TO-zzz-mft-local-local"
+          }
+        ]
+      }
+    },
+    "zzz-mft-local-s3": {
+      "Type": "Job:FileTransfer",
+      "ConnectionProfileSrc": "rja_local",
+      "ConnectionProfileDest": "rja_s3",
+      "S3BucketName": "reggies3",
+      "Host": "rja-saas-agent",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This is a file transfer job with s3 connection profile",
+      "RunAs": "rja_local+rja_s3",
+      "Variables": [
+        {
+          "FTP-LOSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE1": "File System"
+        },
+        {
+          "FTP-LHOST": "<Agent Host>"
+        },
+        {
+          "FTP-PORT1": "21"
+        },
+        {
+          "FTP-LUSER": "ctmag"
+        },
+        {
+          "FTP-ROSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE2": "S3"
+        },
+        {
+          "FTP-PORT2": "21"
+        },
+        {
+          "FTP-CM_VER": "9.0.00"
+        },
+        {
+          "FTP-TIMELIMIT_UNIT1": "1"
+        },
+        {
+          "FTP-MODIFIED_SINCE_LASTRUN1": "0"
+        },
+        {
+          "FTP-LAST_SUCCESFUL_RUN_INIT_AGE1": "0"
+        },
+        {
+          "FTP-FIRST_RUN_DELTA1": "1"
+        }
+      ],
+      "FileTransfers": [
+        {
+          "TransferType": "Binary",
+          "TransferOption": "SrcToDest",
+          "Src": "/home/ctmag/soft/AFP.9.0.20.080_Linux-x86_64.BIN",
+          "Dest": "/Outgoing/",
+          "ABSTIME": "0",
+          "TIMELIMIT": "0",
+          "UNIQUE": "0",
+          "SRCOPT": "0",
+          "IF_EXIST": "0",
+          "DSTOPT": "0",
+          "RECURSIVE": "0",
+          "EXCLUDE_WILDCARD": "0",
+          "TRIM": "1",
+          "NULLFLDS": "0",
+          "VERNUM": "0",
+          "CASEIFS": "0"
+        }
+      ],
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "zzz-middle-flow-TO-zzz-mft-local-s3"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-s3-TO-zzz-mft-file-watcher"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "zzz-middle-flow-TO-zzz-mft-local-s3"
+          }
+        ]
+      }
+    },
+    "zzz-mft-s3-s3": {
+      "Type": "Job:FileTransfer",
+      "ConnectionProfileSrc": "rja_s3",
+      "ConnectionProfileDest": "rja_s3",
+      "Host": "rja-saas-agent",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This is a file transfer job with a connection profile from s3 to s3",
+      "RunAs": "rja_s3+rja_s3",
+      "Variables": [
+        {
+          "FTP-LOSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE1": "S3"
+        },
+        {
+          "FTP-PORT1": "21"
+        },
+        {
+          "FTP-ROSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE2": "S3"
+        },
+        {
+          "FTP-PORT2": "21"
+        },
+        {
+          "FTP-S3_LBUCKET_NAME": "reggies3"
+        },
+        {
+          "FTP-S3_RBUCKET_NAME": "reggie-another-bucket"
+        },
+        {
+          "FTP-CM_VER": "9.0.00"
+        },
+        {
+          "FTP-TIMELIMIT_UNIT1": "1"
+        },
+        {
+          "FTP-MODIFIED_SINCE_LASTRUN1": "0"
+        },
+        {
+          "FTP-LAST_SUCCESFUL_RUN_INIT_AGE1": "0"
+        },
+        {
+          "FTP-FIRST_RUN_DELTA1": "1"
+        }
+      ],
+      "FileTransfers": [
+        {
+          "TransferType": "Binary",
+          "TransferOption": "SrcToDest",
+          "Src": "/Incoming/200MB.zip",
+          "Dest": "/Outgoing/",
+          "ABSTIME": "0",
+          "TIMELIMIT": "0",
+          "UNIQUE": "0",
+          "SRCOPT": "0",
+          "IF_EXIST": "0",
+          "DSTOPT": "0",
+          "RECURSIVE": "0",
+          "EXCLUDE_WILDCARD": "0",
+          "TRIM": "1",
+          "NULLFLDS": "0",
+          "VERNUM": "0",
+          "CASEIFS": "0"
+        }
+      ],
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "zzz-middle-flow-TO-zzz-mft-s3-s3"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-s3-s3-TO-zzz-mft-file-watcher"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "zzz-middle-flow-TO-zzz-mft-s3-s3"
+          }
+        ]
+      }
+    },
+    "zzz-mft-local-group": {
+      "Type": "Job:FileTransfer",
+      "ConnectionProfileSrc": "rja_local",
+      "ConnectionProfileDest": "rja_group",
+      "RunAsDummy": true,
+      "Host": "rja-saas-agent",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This is a file transfer job with a group connection profile",
+      "RunAs": "rja_local+rja_group",
+      "Variables": [
+        {
+          "FTP-LOSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE1": "File System"
+        },
+        {
+          "FTP-LHOST": "<Agent Host>"
+        },
+        {
+          "FTP-PORT1": "21"
+        },
+        {
+          "FTP-LUSER": "ctmag"
+        },
+        {
+          "FTP-GROUPNAME": "rja_connect2;rja_connect1"
+        },
+        {
+          "FTP-ROSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE2": "Group"
+        },
+        {
+          "FTP-RHOST": "MultiCast"
+        },
+        {
+          "FTP-PORT2": "21"
+        },
+        {
+          "FTP-CM_VER": "9.0.00"
+        },
+        {
+          "FTP-TIMELIMIT_UNIT1": "1"
+        },
+        {
+          "FTP-MODIFIED_SINCE_LASTRUN1": "0"
+        },
+        {
+          "FTP-LAST_SUCCESFUL_RUN_INIT_AGE1": "0"
+        },
+        {
+          "FTP-FIRST_RUN_DELTA1": "1"
+        },
+        {
+          "FTP-MULTI1HOST00": "rja_connect2"
+        },
+        {
+          "FTP-MULTI1PATH00": "/home/ctmag/transfer/transfer/"
+        },
+        {
+          "FTP-MULTI1HOST01": "rja_connect1"
+        },
+        {
+          "FTP-MULTI1PATH01": "/home/ctmag/transfer/transfer/"
+        }
+      ],
+      "FileTransfers": [
+        {
+          "TransferType": "Binary",
+          "TransferOption": "SrcToDest",
+          "Src": "/home/ctmag/soft/AFP.9.0.20.080_Linux-x86_64.BIN",
+          "Dest": "$HOMEDIRECTORY$",
+          "ABSTIME": "0",
+          "TIMELIMIT": "0",
+          "UNIQUE": "0",
+          "SRCOPT": "0",
+          "IF_EXIST": "0",
+          "DSTOPT": "0",
+          "RECURSIVE": "0",
+          "EXCLUDE_WILDCARD": "0",
+          "TRIM": "1",
+          "NULLFLDS": "0",
+          "VERNUM": "0",
+          "CASEIFS": "0"
+        }
+      ],
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "zzz-begin-flow-TO-zzz-mft-local-group"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-group-TO-zzz-mft-transfer-small"
+          },
+          {
+            "Event": "zzz-mft-local-group-TO-zzz-mft-transfer-medium"
+          },
+          {
+            "Event": "zzz-mft-local-group-TO-zzz-mft-transfer-big"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "zzz-begin-flow-TO-zzz-mft-local-group"
+          }
+        ]
+      }
+    },
+    "zzz-begin-flow": {
+      "Type": "Job:Command",
+      "SubApplication": "mft-workflow-demo",
+      "Host": "rja-saas-agent",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This is to start the flow",
+      "RunAs": "ctmag",
+      "Application": "standard-demo",
+      "Command": "sleep 10",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "zzz-begin-flow-TO-zzz-mft-local-group"
+          }
+        ]
+      }
+    },
+    "zzz-mft-transfer-small": {
+      "Type": "Job:FileTransfer",
+      "ConnectionProfileSrc": "rja_ftp",
+      "ConnectionProfileDest": "rja_s3",
+      "S3BucketName": "reggies3",
+      "SubApplication": "mft-workflow-demo",
+      "Host": "rja-saas-agent",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This is a normal transfer to populate the search dashboard with a small file",
+      "RunAs": "rja_ftp+rja_s3",
+      "Application": "standard-demo",
+      "Variables": [
+        {
+          "FTP-LOSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE1": "FTP"
+        },
+        {
+          "FTP-LHOST": "speedtest.tele2.net"
+        },
+        {
+          "FTP-LUSER": "Anonymous"
+        },
+        {
+          "FTP-HOMEDIR1": "/"
+        },
+        {
+          "FTP-ROSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE2": "S3"
+        },
+        {
+          "FTP-CM_VER": "9.0.00"
+        },
+        {
+          "FTP-TIMELIMIT_UNIT1": "1"
+        },
+        {
+          "FTP-MODIFIED_SINCE_LASTRUN1": "0"
+        },
+        {
+          "FTP-LAST_SUCCESFUL_RUN_INIT_AGE1": "0"
+        },
+        {
+          "FTP-FIRST_RUN_DELTA1": "1"
+        }
+      ],
+      "FileTransfers": [
+        {
+          "TransferType": "Binary",
+          "TransferOption": "SrcToDest",
+          "Src": "/200MB.zip",
+          "Dest": "/Incoming/",
+          "ABSTIME": "0",
+          "TIMELIMIT": "0",
+          "UNIQUE": "0",
+          "SRCOPT": "0",
+          "IF_EXIST": "0",
+          "DSTOPT": "0",
+          "RECURSIVE": "0",
+          "EXCLUDE_WILDCARD": "0",
+          "TRIM": "1",
+          "NULLFLDS": "0",
+          "VERNUM": "0",
+          "CASEIFS": "0"
+        }
+      ],
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-group-TO-zzz-mft-transfer-small"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-transfer-small-TO-zzz-middle-flow"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-group-TO-zzz-mft-transfer-small"
+          }
+        ]
+      }
+    },
+    "zzz-mft-transfer-medium": {
+      "Type": "Job:FileTransfer",
+      "ConnectionProfileSrc": "rja_ftp",
+      "ConnectionProfileDest": "rja_s3",
+      "S3BucketName": "reggies3",
+      "SubApplication": "mft-workflow-demo",
+      "Host": "rja-saas-agent",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This is a normal transfer to populate the search dashboard with a medium file",
+      "RunAs": "rja_ftp+rja_s3",
+      "Application": "standard-demo",
+      "Variables": [
+        {
+          "FTP-LOSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE1": "FTP"
+        },
+        {
+          "FTP-LHOST": "speedtest.tele2.net"
+        },
+        {
+          "FTP-LUSER": "Anonymous"
+        },
+        {
+          "FTP-HOMEDIR1": "/"
+        },
+        {
+          "FTP-ROSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE2": "S3"
+        },
+        {
+          "FTP-CM_VER": "9.0.00"
+        },
+        {
+          "FTP-TIMELIMIT_UNIT1": "1"
+        },
+        {
+          "FTP-MODIFIED_SINCE_LASTRUN1": "0"
+        },
+        {
+          "FTP-LAST_SUCCESFUL_RUN_INIT_AGE1": "0"
+        },
+        {
+          "FTP-FIRST_RUN_DELTA1": "1"
+        }
+      ],
+      "FileTransfers": [
+        {
+          "TransferType": "Binary",
+          "TransferOption": "SrcToDest",
+          "Src": "/500MB.zip",
+          "Dest": "/Incoming/",
+          "ABSTIME": "0",
+          "TIMELIMIT": "0",
+          "UNIQUE": "0",
+          "SRCOPT": "0",
+          "IF_EXIST": "0",
+          "DSTOPT": "0",
+          "RECURSIVE": "0",
+          "EXCLUDE_WILDCARD": "0",
+          "TRIM": "1",
+          "NULLFLDS": "0",
+          "VERNUM": "0",
+          "CASEIFS": "0"
+        }
+      ],
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-group-TO-zzz-mft-transfer-medium"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-transfer-medium-TO-zzz-middle-flow"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-group-TO-zzz-mft-transfer-medium"
+          }
+        ]
+      }
+    },
+    "zzz-mft-transfer-big": {
+      "Type": "Job:FileTransfer",
+      "ConnectionProfileSrc": "rja_ftp",
+      "ConnectionProfileDest": "rja_s3",
+      "S3BucketName": "reggies3",
+      "SubApplication": "mft-workflow-demo",
+      "Host": "rja-saas-agent",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This is a normal transfer to populate the search dashboard with a big file",
+      "RunAs": "rja_ftp+rja_s3",
+      "Application": "standard-demo",
+      "Variables": [
+        {
+          "FTP-LOSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE1": "FTP"
+        },
+        {
+          "FTP-LHOST": "speedtest.tele2.net"
+        },
+        {
+          "FTP-PORT1": "21"
+        },
+        {
+          "FTP-LUSER": "Anonymous"
+        },
+        {
+          "FTP-HOMEDIR1": "/"
+        },
+        {
+          "FTP-ROSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE2": "S3"
+        },
+        {
+          "FTP-PORT2": "21"
+        },
+        {
+          "FTP-CM_VER": "9.0.00"
+        },
+        {
+          "FTP-TIMELIMIT_UNIT1": "1"
+        },
+        {
+          "FTP-MODIFIED_SINCE_LASTRUN1": "0"
+        },
+        {
+          "FTP-LAST_SUCCESFUL_RUN_INIT_AGE1": "0"
+        },
+        {
+          "FTP-FIRST_RUN_DELTA1": "1"
+        },
+        {
+          "FTP-DEST_MODIFY_CASE1": "N"
+        }
+      ],
+      "FileTransfers": [
+        {
+          "TransferType": "Binary",
+          "TransferOption": "SrcToDest",
+          "Src": "/1GB.zip",
+          "Dest": "/Incoming/",
+          "ABSTIME": "0",
+          "TIMELIMIT": "0",
+          "UNIQUE": "0",
+          "SRCOPT": "0",
+          "IF_EXIST": "0",
+          "DSTOPT": "0",
+          "RECURSIVE": "0",
+          "EXCLUDE_WILDCARD": "0",
+          "TRIM": "1",
+          "NULLFLDS": "0",
+          "VERNUM": "0",
+          "CASEIFS": "0"
+        }
+      ],
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-group-TO-zzz-mft-transfer-big"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-transfer-big-TO-zzz-middle-flow"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-group-TO-zzz-mft-transfer-big"
+          }
+        ]
+      }
+    },
+    "zzz-middle-flow": {
+      "Type": "Job:Command",
+      "SubApplication": "mft-workflow-demo",
+      "Host": "rja-saas-agent",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This is a checkpoint in the middle of the flow",
+      "RunAs": "ctmag",
+      "Application": "standard-demo",
+      "Command": "sleep 10",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-transfer-big-TO-zzz-middle-flow"
+          },
+          {
+            "Event": "zzz-mft-transfer-medium-TO-zzz-middle-flow"
+          },
+          {
+            "Event": "zzz-mft-transfer-small-TO-zzz-middle-flow"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "zzz-middle-flow-TO-zzz-mft-local-local"
+          },
+          {
+            "Event": "zzz-middle-flow-TO-zzz-mft-local-s3"
+          },
+          {
+            "Event": "zzz-middle-flow-TO-zzz-mft-s3-s3"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-transfer-big-TO-zzz-middle-flow"
+          },
+          {
+            "Event": "zzz-mft-transfer-medium-TO-zzz-middle-flow"
+          },
+          {
+            "Event": "zzz-mft-transfer-small-TO-zzz-middle-flow"
+          }
+        ]
+      }
+    },
+    "zzz-mft-file-watcher": {
+      "Type": "Job:FileTransfer",
+      "ConnectionProfileSrc": "rja_s3",
+      "ConnectionProfileDest": "rja_local",
+      "S3BucketName": "reggies3",
+      "SubApplication": "mft-workflow-demo",
+      "Host": "rja-saas-agent",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This is a file watcher that will wait for a file on s3 and then trigger another workflow",
+      "RunAs": "rja_s3+rja_local",
+      "Application": "standard-demo",
+      "Variables": [
+        {
+          "FTP-LOSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE1": "S3"
+        },
+        {
+          "FTP-PORT1": "21"
+        },
+        {
+          "FTP-ROSTYPE": "Unix"
+        },
+        {
+          "FTP-CONNTYPE2": "File System"
+        },
+        {
+          "FTP-RHOST": "<Agent Host>"
+        },
+        {
+          "FTP-PORT2": "21"
+        },
+        {
+          "FTP-RUSER": "ctmag"
+        },
+        {
+          "FTP-CM_VER": "9.0.00"
+        },
+        {
+          "FTP-TIMELIMIT_UNIT1": "1"
+        },
+        {
+          "FTP-MODIFIED_SINCE_LASTRUN1": "0"
+        },
+        {
+          "FTP-LAST_SUCCESFUL_RUN_INIT_AGE1": "0"
+        },
+        {
+          "FTP-FIRST_RUN_DELTA1": "1"
+        }
+      ],
+      "FileTransfers": [
+        {
+          "TransferType": "Binary",
+          "TransferOption": "SrcToDestFileWatcher",
+          "Src": "/Incoming/200MB.zip",
+          "Dest": "/home/ctmag/transfer/",
+          "ABSTIME": "0",
+          "TIMELIMIT": "0",
+          "UNIQUE": "0",
+          "SRCOPT": "0",
+          "IF_EXIST": "0",
+          "DSTOPT": "0",
+          "RECURSIVE": "0",
+          "EXCLUDE_WILDCARD": "0",
+          "TRIM": "1",
+          "NULLFLDS": "0",
+          "VERNUM": "0",
+          "CASEIFS": "0"
+        }
+      ],
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "IfBase:Folder:CompletionStatus_13": {
+        "Type": "If:CompletionStatus",
+        "CompletionStatus": "OK",
+        "Run_0": {
+          "Type": "Action:Run",
+          "Folder": "zzz-mft-event-trigger",
+          "Job": "*"
+        }
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-local-TO-zzz-mft-file-watcher"
+          },
+          {
+            "Event": "zzz-mft-local-s3-TO-zzz-mft-file-watcher"
+          },
+          {
+            "Event": "zzz-mft-s3-s3-TO-zzz-mft-file-watcher"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-file-watcher-TO-zzz-mft-sla"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-local-local-TO-zzz-mft-file-watcher"
+          },
+          {
+            "Event": "zzz-mft-local-s3-TO-zzz-mft-file-watcher"
+          },
+          {
+            "Event": "zzz-mft-s3-s3-TO-zzz-mft-file-watcher"
+          }
+        ]
+      }
+    },
+    "zzz-mft-sla": {
+      "Type": "Job:SLAManagement",
+      "ServiceName": "zzz-mft-service-monitor",
+      "ServicePriority": "3",
+      "SubApplication": "mft-workflow-demo",
+      "Host": "rja-saas-agent",
+      "JobRunsDeviationsTolerance": "3",
+      "CreatedBy": "regardt_jacobs@bmc.com",
+      "Description": "This will monitor the overall status of the mft workflow",
+      "RunAs": "ctmag",
+      "Application": "standard-demo",
+      "CompleteIn": {
+        "Time": "0:20"
+      },
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-file-watcher-TO-zzz-mft-sla"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "zzz-mft-file-watcher-TO-zzz-mft-sla"
+          }
+        ]
+      }
+    }
+  }
+}

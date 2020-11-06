@@ -1,0 +1,5 @@
+{
+  "runId": "03fc0886-32df-48af-b472-b3af81041331",
+  "statusURI": "https://sc-pre-prod-nlb.preprod.ctmsaas.com/automation-api/run/status/03fc0886-32df-48af-b472-b3af81041331"
+}
+-i is not supported. The interactive URL property 'monitorPageURI' not found in command result
