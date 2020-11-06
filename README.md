@@ -5,6 +5,8 @@ Introduction:
 The intention of this repository is to provide job templates relevant to the Control-M Managed File transfer solution specifically running on the Control-M SaaS platform.
 By providing these templates, it will make it easier for the Solution Engineers to use these templates in building Solution Demo’s for their customers.
 
+![Screenshot 2020-11-06 at 15 04 44](https://user-images.githubusercontent.com/51226604/98387167-fbd97a00-2048-11eb-8e26-ef7e877ac161.png)
+
 Disclaimer
 This application is not linked to or based on any particular business at all. The contents are all fictional and have been fabricated to be used for demonstration purposes only. 
 
