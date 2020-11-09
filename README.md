@@ -10,11 +10,11 @@
 - [Plugin_Overview](#Plugin_Overview)
 - [Plugin_Prerequisites](#Plugin_Prerequisites)
 - [Workflow_Layout](#Workflow_Layout)
-   - [Start_Flow](#Start_Flow)
-   - [Multi_Cast](#Multi_Cast)
-   - [Size_Matters](#Size_Matters)
-   - [Different_Methods](#Different_Methods)
-   - [File_Watching](#File_Watching)
+    * [Start_Flow](#Start_Flow)
+    * [Multi_Cast](#Multi_Cast)
+    * [Size_Matters](#Size_Matters)
+    * [Different_Methods](#Different_Methods)
+    * [File_Watching](#File_Watching)
 - [SLA_Management](#SLA_Management)
 
 # Introduction:
@@ -86,7 +86,7 @@ This job will use the Multi-Cast feature to transfer a file from one source to t
    
    <img width="484" alt="Screenshot 2020-11-06 at 16 13 53" src="https://user-images.githubusercontent.com/51226604/98388800-1d3b6580-204b-11eb-947d-44db6145fdd8.png"> 
 
-# 3. Different size transfers: 
+# 3. Size_Matters: 
 
 The next three jobs will each be responsible for transferring different size files to populate the Managed File Transfer Search dashboard with different size files for analysis. 
 
@@ -103,7 +103,7 @@ Change the file being transferred to something irrelevant and rerun the job from
 
 Also, now you will be able to interact with the failure in respect of showing the Summary, Job Output and navigating to the Transfer Workflow from here to show the functionality
 
-# 4. Transfers - 3 seperate methods: 
+# 4. Different_Methods: 
 
 The next few jobs will start with a checkpoint job again (**zzz-middle-flow**) to give you some time to navigate between the domains. The time can be changed depending on what is required and your talk track. 
 
@@ -139,7 +139,7 @@ This job can be modified to trigger a specific event depending on the requiremen
 
 <img width="190" alt="Screenshot 2020-11-09 at 19 20 16" src="https://user-images.githubusercontent.com/51226604/98586464-a0b1bc80-22c0-11eb-9cdf-a560754639be.png">
 
-# 6. Transfer SLA_Management: 
+# 6. SLA_Management: 
 
 The last job within the flow will be a normal SLA Management job template to act as a service monitoring job for the transfer flow. it is connected to 10/11 jobs so that the flow can also be manipulated with regards the critical path
 
