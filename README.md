@@ -38,7 +38,7 @@ Managed File Transfer (MFT) plugin is an FTP/SFTP client and server solution tha
 
 <img width="974" alt="Screenshot 2020-11-06 at 16 20 16" src="https://user-images.githubusercontent.com/51226604/98389452-fdf10800-204b-11eb-983c-5d71a41b2330.png"> 
 
-# Prerequisites
+# Prerequisites:
 
 * Before installing the MFT plug-in, make sure that Agent version 9.0.20.080 is installed.
 * Verify that all jobs running on the Agent have ended.
@@ -89,15 +89,15 @@ Template: **zzz-middle-flow --> zzz-mft-local-local ; zzz-mft-local-s3 ; zzz-mft
 
 Once the time has elapsed, the next three jobs will run simutaneously responsible for connection profiles:
 
-a) Local to Local transfer - Making use of a normal File System connection profile to and from a local host
+a) **Local to Local transfer - Making use of a normal File System connection profile to and from a local host**
 
 <img width="508" alt="Screenshot 2020-11-09 at 18 39 32" src="https://user-images.githubusercontent.com/51226604/98582474-ed929480-22ba-11eb-92cc-6c142e801d0f.png">
 
-b) Local to S3 bucket - Making use of a transfer from a File System local host to an AWS S3 bucket in the Cloud
+b) **Local to S3 bucket - Making use of a transfer from a File System local host to an AWS S3 bucket in the Cloud**
 
 <img width="507" alt="Screenshot 2020-11-09 at 18 40 26" src="https://user-images.githubusercontent.com/51226604/98582576-0ef38080-22bb-11eb-8ce0-ec71e0ec27ff.png">
 
-c) S3 bucket - S3 bucket - Making use of S3 connection profile for transfer beteen two different buckets on AWS Cloud
+c) **S3 bucket - S3 bucket - Making use of S3 connection profile for transfer beteen two different buckets on AWS Cloud**
 
 <img width="507" alt="Screenshot 2020-11-09 at 18 41 18" src="https://user-images.githubusercontent.com/51226604/98582675-31859980-22bb-11eb-8f60-e40ee6ef90bb.png">
 
