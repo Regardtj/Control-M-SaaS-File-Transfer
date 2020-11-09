@@ -1,5 +1,22 @@
 # Control-M SaaS: Managed File Transfer job templates
 
+# Quick Reference:
+
+- [Introduction](#Control-M Managed File Transfer)
+- [MFT_Overview](#MFT_Overview)
+- [Environment](#Environment)
+- [Requirements](#Requirements)
+- [MFT_Plugin](#MFT_Plugin)
+- [Plugin_Overview](#Plugin_Overview)
+- [Plugin_Prerequisites](#Plugin_Prerequisites)
+- [Workflow_Layout](#Workflow_Layout)
+- [Confirm_Flow](#Confirm_Flow)
+- [Multi-Cast_Transfer](#Multi-Cast_Transfer)
+- [Size_Matters](#Size_Matters)
+- [Different_Methods](#Different_Methods)
+- [File_Watching](#File_Watching)
+- [SLA_Management](#SLA_Management)
+
 # Introduction:
 
 The intention of this repository is to provide job templates relevant to the Control-M Managed File transfer solution specifically running on the Control-M SaaS platform.
@@ -10,13 +27,8 @@ By providing these templates, it will make it easier for the Solution Engineers 
 # Disclaimer
 This application is not linked to or based on any particular business at all. The contents are all fictional and have been fabricated to be used for demonstration purposes only. 
 
-# Quick Reference:
 
-- [Control-M Managed File Transfer](#Control-M Managed File Transfer)
-- [Environment](#Environment)
-
-
-# Control-M Managed File Transfer:
+# MFT_Overview:
 
 Every modern business depends on the movement of files. Whether it be between internal applications, systems of record, mainframes, external business partners, or cloud platforms, this is a mission-critical requirement that practically every single business process depends on to succeed.  
 Nonetheless, despite how important this is, many businesses still manage file transfers independently from their business workflows and depend on custom integrations, scripting and manual interventions to synchronise them. 
@@ -37,21 +49,21 @@ Control-M SaaS will be the is the key in orchestrating the File Transfer applica
 
 <img width="1674" alt="Screenshot 2020-11-06 at 16 18 02" src="https://user-images.githubusercontent.com/51226604/98389235-ae124100-204b-11eb-81a4-25617f319f39.png">
 
-# Plugin for Managed File Transfer:
+# MFT_Plugin:
 
-# Overview
+# Plugin_Overview:
 Managed File Transfer (MFT) plugin is an FTP/SFTP client and server solution that enables you to watch files and transfer files in your organisation. It supports accessing a local file system, Amazon or compatible S3 and SFTP or FTP/S protocols. It also provides an easy file search capability.
 
 <img width="974" alt="Screenshot 2020-11-06 at 16 20 16" src="https://user-images.githubusercontent.com/51226604/98389452-fdf10800-204b-11eb-983c-5d71a41b2330.png"> 
 
-# Prerequisites:
+# Plugin_Prerequisites:
 
 * Before installing the MFT plug-in, make sure that Agent version 9.0.20.080 is installed.
 * Verify that all jobs running on the Agent have ended.
 
-# Workflow layout:
+# Workflow_Layout:
 
-# 1. Begin transfer flow:  
+# 1. Begin_transfer flow:  
 
 The workflow starts with a normal OS job to begin the workflow. This job will be waiting for confirmation.
 
@@ -61,7 +73,7 @@ Template: **zzz-begin-flow**
 
 <img width="511" alt="Screenshot 2020-11-06 at 16 05 54" src="https://user-images.githubusercontent.com/51226604/98388011-106a4200-204a-11eb-8dcf-18a88cca121a.png"> 
 
-# 2. Multi-Cast Transfer: 
+# 2. Multi-Cast_Transfer: 
 
 The first transfer in the workflow will be from a single connection profile to profiles part of a group.
 
@@ -116,7 +128,7 @@ c) **S3 bucket - S3 bucket - Making use of S3 connection profile for transfer be
 
 <img width="507" alt="Screenshot 2020-11-09 at 18 41 18" src="https://user-images.githubusercontent.com/51226604/98582675-31859980-22bb-11eb-8f60-e40ee6ef90bb.png">
 
-# 5. File Watching: 
+# 5. File_Watching: 
 
 The next job will then be a file watcher responsible for monitoring a file arrival in a specific folder. Once the file arrives, it will trigger a job to run to show the continuing of a workflow acting on a trigger.
 
@@ -128,7 +140,7 @@ This job can be modified to trigger a specific event depending on the requiremen
 
 <img width="190" alt="Screenshot 2020-11-09 at 19 20 16" src="https://user-images.githubusercontent.com/51226604/98586464-a0b1bc80-22c0-11eb-9cdf-a560754639be.png">
 
-# 6. Transfer SLA Management: 
+# 6. Transfer SLA_Management: 
 
 The last job within the flow will be a normal SLA Management job template to act as a service monitoring job for the transfer flow. it is connected to 10/11 jobs so that the flow can also be manipulated with regards the critical path
 
