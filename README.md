@@ -49,11 +49,13 @@ Managed File Transfer (MFT) plugin is an FTP/SFTP client and server solution tha
 
 This is to ensure that your are ready when you need to start demonstrating.
 
+Template: **zzz-begin-flow
+
 <img width="511" alt="Screenshot 2020-11-06 at 16 05 54" src="https://user-images.githubusercontent.com/51226604/98388011-106a4200-204a-11eb-8dcf-18a88cca121a.png"> 
 
 2. The first transfer in the workflow will be from a single connection profile to profiles part of a group.
 
-Template: zzz-mft-local-group
+Template: **zzz-mft-local-group
 
 <img width="249" alt="Screenshot 2020-11-06 at 16 27 49" src="https://user-images.githubusercontent.com/51226604/98390287-0eee4900-204d-11eb-9fdc-5e834aedf1c7.png">
    
@@ -64,9 +66,9 @@ This job will use the Multi-Cast feature to transfer a file from one source to t
    <img width="484" alt="Screenshot 2020-11-06 at 16 13 53" src="https://user-images.githubusercontent.com/51226604/98388800-1d3b6580-204b-11eb-947d-44db6145fdd8.png"> 
 
 
-4. **Template: zzz-mft-transfer-small ; zzz-mft-transfer-medium ; zzz-mft-transfer-big
+3. The next three jobs will each be responsible for transferring different size files to populate the Managed File Transfer Search dashboard with different size files for analysis. 
 
-The next three jobs will each be responsible for transferring different size files to populate the Managed File Transfer Search dashboard with different size files for analysis. 
+Template: **zzz-mft-transfer-small ; zzz-mft-transfer-medium ; zzz-mft-transfer-big
 
 These jobs are making use of normal FTP connection profiles to an S3 bucket capabale for handling the file sizes
 
@@ -79,9 +81,9 @@ Change the file being transferred to something irrelevant and rerun the job from
 
 Also, now you will be able to interact with the failure in respect of showing the Summary, Job Output and navigating to the Transfer Workflow from here to show the functionality
 
-5. Template: zzz-middle-flow --> zzz-mft-local-local ; zzz-mft-local-s3 ; zzz-mft-s3-s3
+4. The next few jobs will start with a checkpoint job again (zzz-middle-flow) to give you some time to navigate between the domains. The time can be changed depending on what is required and your talk track. It is currently set at 10 seconds.
 
-The next few jobs will start with a checkpoint job again (zzz-middle-flow) to give you some time to navigate between the domains. The time can be changed depending on what is required and your talk track. It is currently set at 10 seconds.
+Template: **zzz-middle-flow --> zzz-mft-local-local ; zzz-mft-local-s3 ; zzz-mft-s3-s3
 
 <img width="608" alt="Screenshot 2020-11-09 at 18 42 32" src="https://user-images.githubusercontent.com/51226604/98582801-5aa62a00-22bb-11eb-92b1-c1b72df8be00.png">
 
@@ -99,18 +101,19 @@ c) S3 bucket - S3 bucket - Making use of S3 connection profile for transfer bete
 
 <img width="507" alt="Screenshot 2020-11-09 at 18 41 18" src="https://user-images.githubusercontent.com/51226604/98582675-31859980-22bb-11eb-8f60-e40ee6ef90bb.png">
 
-6. Template: zzz-mft-file-watcher
+5. The next job will then be a file watcher responsible for monitoring a file arrival in a specific folder. Once the file arrives, it will trigger a job to run to show the continuing of a workflow acting on a trigger.
 
-The next job will then be a file watcher responsible for monitoring a file arrival in a specific folder. Once the file arrives, it will trigger a job to run to show the continuing of a workflow acting on a trigger.
+Template: **zzz-mft-file-watcher
+
 These jobs are not dependant on the Transfer Flow but rather show the basic File Watcher triggering.
 
 This job can be modified to trigger a specific event depending on the requirement with the existing Tranfer template flow or depending what needs to be showed to a specific customer. 
 
 <img width="190" alt="Screenshot 2020-11-09 at 19 20 16" src="https://user-images.githubusercontent.com/51226604/98586464-a0b1bc80-22c0-11eb-9cdf-a560754639be.png">
 
-7. Template: zzz-mft-sla
+6. The last job within the flow will be a normal SLA Management job template to act as a service monitoring job for the transfer flow. it is connected to 10/11 jobs so that the flow can also be manipulated with regards the critical path
 
-The last job within the flow will be a normal SLA Management job template to act as a service monitoring job for the transfer flow. it is connected to 10/11 jobs so that the flow can also be manipulated with regards the critical path
+Template: **zzz-mft-sla
 
 <img width="193" alt="Screenshot 2020-11-09 at 19 26 29" src="https://user-images.githubusercontent.com/51226604/98587024-7e6c6e80-22c1-11eb-8f6b-699e584865d1.png">
 
