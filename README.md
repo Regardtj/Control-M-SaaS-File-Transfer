@@ -2,14 +2,14 @@
 
 # Quick Reference:
 
-- [Introduction](#Introduction)(#Information on the purpose of this repository)
-- [MFT_Overview](#MFT_Overview)
-- [Environment](#Environment)
-- [Requirements](#Requirements)
-- [MFT_Plugin](#MFT_Plugin)
+- [Introduction](#Introduction) (Information on the purpose of this repository)
+- [MFT_Overview](#MFT_Overview) (General MFT overview)
+- [Environment](#Environment)   (Control-M SaaS Environment information)
+- [Requirements](#Requirements) (Platform requirement information)
+- [MFT_Plugin](#MFT_Plugin) ( Control-M SaaS MFT Plugin information)
 - [Plugin_Overview](#Plugin_Overview)
 - [Plugin_Prerequisites](#Plugin_Prerequisites)
-- [Workflow_Layout](#Workflow_Layout)
+- [Workflow_Layout](#Workflow_Layout) (Information on the different jobs within the workflow)
     * [Start_Flow](#Start_Flow)
     * [Multi_Cast](#Multi_Cast)
     * [Size_Matters](#Size_Matters)
