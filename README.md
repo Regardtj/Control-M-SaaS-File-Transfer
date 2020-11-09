@@ -2,7 +2,7 @@
 
 # Quick Reference:
 
-- [Introduction](#Control-M Managed File Transfer)
+- [Introduction](#Introduction)(#Information on the purpose of this repository)
 - [MFT_Overview](#MFT_Overview)
 - [Environment](#Environment)
 - [Requirements](#Requirements)
