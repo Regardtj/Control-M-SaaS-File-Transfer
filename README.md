@@ -10,6 +10,12 @@ By providing these templates, it will make it easier for the Solution Engineers 
 # Disclaimer
 This application is not linked to or based on any particular business at all. The contents are all fictional and have been fabricated to be used for demonstration purposes only. 
 
+# Quick Reference:
+
+- [Control-M Managed File Transfer](#Control-M Managed File Transfer)
+- [Environment](#Environment)
+
+
 # Control-M Managed File Transfer:
 
 Every modern business depends on the movement of files. Whether it be between internal applications, systems of record, mainframes, external business partners, or cloud platforms, this is a mission-critical requirement that practically every single business process depends on to succeed.  
