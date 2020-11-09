@@ -88,13 +88,15 @@ Also, now you will be able to interact with the failure in respect of showing th
 
 # 4. Transfers - 3 seperate methods: 
 
-The next few jobs will start with a checkpoint job again (zzz-middle-flow) to give you some time to navigate between the domains. The time can be changed depending on what is required and your talk track. It is currently set at 10 seconds.
+The next few jobs will start with a checkpoint job again (**zzz-middle-flow**) to give you some time to navigate between the domains. The time can be changed depending on what is required and your talk track. 
+
+It is currently set at 10 seconds.
 
 Template: **zzz-middle-flow --> zzz-mft-local-local ; zzz-mft-local-s3 ; zzz-mft-s3-s3**
 
 <img width="608" alt="Screenshot 2020-11-09 at 18 42 32" src="https://user-images.githubusercontent.com/51226604/98582801-5aa62a00-22bb-11eb-92b1-c1b72df8be00.png">
 
-Once the time has elapsed, the next three jobs will run simutaneously responsible for connection profiles:
+Once the time has elapsed, the next three jobs will run simutaneously responsible for connection profiles in 3 seperate ways.
 
 a) **Local to Local transfer - Making use of a normal File System connection profile to and from a local host**
 
