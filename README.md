@@ -62,7 +62,7 @@ Managed File Transfer (MFT) plugin is an FTP/SFTP client and server solution tha
 
 # Workflow_Layout:
 
-# 1. Start_Flow:  
+# Start_Flow:  
 
 The workflow starts with a normal OS job to begin the workflow. This job will be waiting for confirmation.
 
@@ -72,7 +72,7 @@ Template: **zzz-begin-flow**
 
 <img width="511" alt="Screenshot 2020-11-06 at 16 05 54" src="https://user-images.githubusercontent.com/51226604/98388011-106a4200-204a-11eb-8dcf-18a88cca121a.png"> 
 
-# 2. Multi_Cast: 
+# Multi_Cast: 
 
 The first transfer in the workflow will be from a single connection profile to profiles part of a group.
 
@@ -86,7 +86,7 @@ This job will use the Multi-Cast feature to transfer a file from one source to t
    
    <img width="484" alt="Screenshot 2020-11-06 at 16 13 53" src="https://user-images.githubusercontent.com/51226604/98388800-1d3b6580-204b-11eb-947d-44db6145fdd8.png"> 
 
-# 3. Size_Matters: 
+# Size_Matters: 
 
 The next three jobs will each be responsible for transferring different size files to populate the Managed File Transfer Search dashboard with different size files for analysis. 
 
@@ -103,7 +103,7 @@ Change the file being transferred to something irrelevant and rerun the job from
 
 Also, now you will be able to interact with the failure in respect of showing the Summary, Job Output and navigating to the Transfer Workflow from here to show the functionality
 
-# 4. Different_Methods: 
+# Different_Methods: 
 
 The next few jobs will start with a checkpoint job again (**zzz-middle-flow**) to give you some time to navigate between the domains. The time can be changed depending on what is required and your talk track. 
 
@@ -127,7 +127,7 @@ c) **S3 bucket - S3 bucket - Making use of S3 connection profile for transfer be
 
 <img width="507" alt="Screenshot 2020-11-09 at 18 41 18" src="https://user-images.githubusercontent.com/51226604/98582675-31859980-22bb-11eb-8f60-e40ee6ef90bb.png">
 
-# 5. File_Watching: 
+# File_Watching: 
 
 The next job will then be a file watcher responsible for monitoring a file arrival in a specific folder. Once the file arrives, it will trigger a job to run to show the continuing of a workflow acting on a trigger.
 
@@ -139,7 +139,7 @@ This job can be modified to trigger a specific event depending on the requiremen
 
 <img width="190" alt="Screenshot 2020-11-09 at 19 20 16" src="https://user-images.githubusercontent.com/51226604/98586464-a0b1bc80-22c0-11eb-9cdf-a560754639be.png">
 
-# 6. SLA_Management: 
+# SLA_Management: 
 
 The last job within the flow will be a normal SLA Management job template to act as a service monitoring job for the transfer flow. it is connected to 10/11 jobs so that the flow can also be manipulated with regards the critical path
 
