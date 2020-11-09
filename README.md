@@ -10,7 +10,7 @@
 - [Plugin_Overview](#Plugin_Overview)
 - [Plugin_Prerequisites](#Plugin_Prerequisites)
 - [Workflow_Layout](#Workflow_Layout)
-- [Confirm_Flow](#Confirm_Flow)
+- [Begin_transfer](#Begin_transfer)
 - [Multi-Cast_Transfer](#Multi-Cast_Transfer)
 - [Size_Matters](#Size_Matters)
 - [Different_Methods](#Different_Methods)
