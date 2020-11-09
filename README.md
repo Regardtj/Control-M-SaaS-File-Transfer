@@ -116,6 +116,10 @@ The last job within the flow will be a normal SLA Management job template to act
 
 <img width="193" alt="Screenshot 2020-11-09 at 19 26 29" src="https://user-images.githubusercontent.com/51226604/98587024-7e6c6e80-22c1-11eb-8f6b-699e584865d1.png">
 
+And also having conversations arounf the critical path of the workflow:
+
+<img width="516" alt="Screenshot 2020-11-09 at 19 40 05" src="https://user-images.githubusercontent.com/51226604/98588368-7f9e9b00-22c3-11eb-94d4-7c465767a5ad.png">
+
 The service zzz-mft-service-monitor can be changed according to what needs to be shown to a customer
 
 <img width="504" alt="Screenshot 2020-11-09 at 19 27 27" src="https://user-images.githubusercontent.com/51226604/98587891-b88a4000-22c2-11eb-83b6-63e8d32490c1.png">
