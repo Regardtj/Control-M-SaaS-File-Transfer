@@ -10,8 +10,7 @@
 - [Plugin_Overview](#Plugin_Overview)
 - [Plugin_Prerequisites](#Plugin_Prerequisites)
 - [Workflow_Layout](#Workflow_Layout)
-- [Examples](#examples)
-- [Begin_transfer](#Begin_transfer)
+- [Begin-transfer-flow](#Begin-transfer-flow)
 - [Multi-Cast_Transfer](#Multi-Cast_Transfer)
 - [Size_Matters](#Size_Matters)
 - [Different_Methods](#Different_Methods)
@@ -63,7 +62,7 @@ Managed File Transfer (MFT) plugin is an FTP/SFTP client and server solution tha
 
 # Workflow_Layout:
 
-# 1. Begin_transfer flow:  
+# 1. Begin-transfer-flow:  
 
 The workflow starts with a normal OS job to begin the workflow. This job will be waiting for confirmation.
 
