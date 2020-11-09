@@ -120,3 +120,6 @@ The service zzz-mft-service-monitor can be changed according to what needs to be
 
 <img width="504" alt="Screenshot 2020-11-09 at 19 27 27" src="https://user-images.githubusercontent.com/51226604/98587891-b88a4000-22c2-11eb-83b6-63e8d32490c1.png">
 
+This all for a view within the service monitor to run through an explanation depending on the requirement
+
+<img width="1675" alt="Screenshot 2020-11-09 at 19 29 42" src="https://user-images.githubusercontent.com/51226604/98588036-f12a1980-22c2-11eb-9b23-392a1044bad4.png">
