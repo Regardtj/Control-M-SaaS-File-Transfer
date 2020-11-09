@@ -1,3 +1,5 @@
+<img width="1415" alt="Screenshot 2020-11-09 at 21 05 05" src="https://user-images.githubusercontent.com/51226604/98596376-42d8a100-22cf-11eb-86aa-783688bf42aa.png">
+
 # Control-M SaaS: Managed File Transfer job templates
 
 # Quick Reference:
