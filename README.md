@@ -1,4 +1,3 @@
-
 # Control-M SaaS: Managed File Transfer job templates
 
 # Introduction:
@@ -46,27 +45,26 @@ Managed File Transfer (MFT) plugin is an FTP/SFTP client and server solution tha
 
 # Workflow layout:
 
-1. The workflow starts with a normal OS job to begin the workflow. this job will be waiting for confirmation.
+1. The workflow starts with a normal OS job ( **zzz-begin-flow**) to begin the workflow. This job will be waiting for confirmation.
 
 This is to ensure that your are ready when you need to start demonstrating.
 
 <img width="511" alt="Screenshot 2020-11-06 at 16 05 54" src="https://user-images.githubusercontent.com/51226604/98388011-106a4200-204a-11eb-8dcf-18a88cca121a.png"> 
 
-2. MFT: Local transfer to Group Connection profile
+2. The first transfer in the workflow will be from a single connection profile to profiles part of a group.
 
-The first transfer in the workflow will be from a single connection profile to profiles part of a group.
-   
-   <img width="484" alt="Screenshot 2020-11-06 at 16 13 53" src="https://user-images.githubusercontent.com/51226604/98388800-1d3b6580-204b-11eb-947d-44db6145fdd8.png"> 
-
-3. Template: zzz-mft-local-group
+Template: zzz-mft-local-group
 
 <img width="249" alt="Screenshot 2020-11-06 at 16 27 49" src="https://user-images.githubusercontent.com/51226604/98390287-0eee4900-204d-11eb-9fdc-5e834aedf1c7.png">
    
 This job will use the Multi-Cast feature to transfer a file from one source to two other endpoints  but also to different locations on each of the        destinations.
 
 <img width="1116" alt="Screenshot 2020-11-06 at 16 23 40" src="https://user-images.githubusercontent.com/51226604/98390018-c20a7280-204c-11eb-9f84-81f92d11cdb6.png">
+   
+   <img width="484" alt="Screenshot 2020-11-06 at 16 13 53" src="https://user-images.githubusercontent.com/51226604/98388800-1d3b6580-204b-11eb-947d-44db6145fdd8.png"> 
 
-4. Template: zzz-mft-transfer-small ; zzz-mft-transfer-medium ; zzz-mft-transfer-big
+
+4. **Template: zzz-mft-transfer-small ; zzz-mft-transfer-medium ; zzz-mft-transfer-big
 
 The next three jobs will each be responsible for transferring different size files to populate the Managed File Transfer Search dashboard with different size files for analysis. 
 
